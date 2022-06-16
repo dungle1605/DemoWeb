@@ -1,0 +1,202 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 13px !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+    border-radius: 0px !important;
+}
+
+
+
+/* Customize classes */
+
+.form-control, .btn, a, text {
+    font-size: 13px !important;
+}
+
+/*Modal dialog*/
+.modal-body {
+    height: auto !important;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto !important;
+}
+
+.body-height {
+    height: auto !important;
+}
+
+@media (min-width: 0px) {
+    .modal-body {
+        height: auto !important;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto !important;
+    }
+}
+
+@media (min-width: 1000px) {
+    .modal-body {
+        height: auto !important;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto !important;
+    }
+
+    .body-height {
+        height: 450px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-add {
+        max-width: 1200px;
+    }
+}
+
+/*Bootbox modal*/
+.modal.bb-modal .modal-header {
+    background: #ab1032;
+    color: white;
+}
+
+.modal.bb-modal .btn {
+    background: #ab1032;
+    color: white;
+    border-radius: 0;
+    border-color: white;
+}
+
+.modal.bb-modal .modal-title {
+    font-size: 16px !important;
+}
+
+.prompt-class {
+    margin-right: 10px !important;
+    vertical-align: text-bottom !important;
+}
+/*Modal dialog*/
+
+/*Form validation error message*/
+.error-font {
+    font-size: 9px !important;
+}
+
+/*Form validation error message*/
+
+/*Button*/
+.btn-default {
+    color: white !important;
+    background-color: #ab1032 !important;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #ab1032 !important;
+    color: white !important;
+}
+/*Button*/
+
+.table > thead {
+    background-color: #ebebeb;
+}
+
+.table-bordered td, .table-bordered th {
+    /*white-space: nowrap;*/
+}
+
+/*.table-responsive{
+    display: inline !important;
+}*/
+
+/*h1, h2, h3, h4, h5, h6, a, button, span, label, input, li, td {
+    font-family: Arial, Helvetica, Verdana, Geneva !important;
+}*/
+
+.badge-custom {
+    line-height: 3 !important;
+    font-size: 10px !important;
+}
+
+.badge-primary {
+    background-color: #ab1032 !important;
+}
+
+div .div-hover:hover {
+    opacity: 0.7;
+}
+
+/* Scrollbar in table */
+#table-wrapper {
+    position: relative;
+}
+
+#table-scroll {
+    height: 500px;
+    overflow: auto;
+}
+
+#table-wrapper table {
+    width: 100%;
+}
+/* Scrollbar in table */
+
+.disabled {
+    pointer-events: none;
+}
+
+/*Panel Accordion*/
+        button.accordion {
+            background-color: #EBEBEB;
+            color: black;
+            cursor: pointer;
+            padding: 5px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+    
+            button.accordion:after {
+                content: '\02795'; /* Unicode character for "plus" sign (+) */
+                color: black;
+                float: right;
+                margin-left: 5px;
+            }
+    
+            button.accordion.active:after {
+                content: "\2796"; /* Unicode character for "minus" sign (-) */
+                color: white;
+            }
+    
+            button.accordion.active, button.accordion:hover {
+                background-color: #ab1032;
+                color: white;
+            }
+    
+        div.panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            border: 1px solid lightgrey;
+        }
+        /*Panel Accordion*/

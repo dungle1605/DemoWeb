@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Type and Bin</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <h4 style="font-weight:bold; padding-top:8px">Storage Type and Bin</h4>
+<br />
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Download Template</label>
+    <div class="col-sm-10">
+        <input type="button" class="btn btn-default" value="Download" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Upload File</label>
+    <div class="col-sm-7">
+        <input type="file" id="uploadfile" class="form-control" />
+    </div>
+    <div class="col-sm-3">
+        <input type="button" class="btn btn-default" value="Validate" />
+    </div>
+</div>
+<hr />
+
+<div class="col-md-3 col-xs-12 col-sm-12" style="margin: 20px auto;">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="fa fa-search"></i>
+            </div>
+        </div>
+        <input id="txtSearchTerm" type="text" class="form-control" placeholder="Input Bin No..." />
+        <input type="button" class="btn btn-default" value="Go" />
+    </div>
+</div>
+
+<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+    <div id="table-wrapper">
+        <div id="table-scroll" class="col-md-12 col-xs-12 col-sm-12">
+            <table id="uploadList" class="table table-bordered justify-content-md-center">
+                <thead>
+                    <tr>
+                        <th class="col-lg-2 col-md-2">
+                            <input id="select_all_checkbox" type="checkbox" />
+                            <label class="form-check-label">Select All</label>
+                        </th>
+                        <th>Warehouse No</th>
+                        <th>Storage Type</th>
+                        <th>Bin No</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="sub_checkbox"/>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option selected>T50</option>
+                                <option disabled>T51</option>
+                            </select>
+                        </td>
+                        <td>A32</td>
+                        <td>COLDVAS01</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="sub_checkbox"/>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option disabled>T50</option>
+                                <option selected>T51</option>
+                            </select>
+                        </td>
+                        <td>A32</td>
+                        <td>COLDVAS02</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="sub_checkbox"/>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option disabled>T50</option>
+                                <option selected>T51</option>
+                            </select>
+                        </td>
+                        <td>A32</td>
+                        <td>COLDVAS03</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="sub_checkbox"/>
+                        </td>
+                        <td>
+                            <select class="form-control">
+                                <option selected>T50</option>
+                                <option disabled>T51</option>
+                            </select>
+                        </td>
+                        <td>A32</td>
+                        <td>COLDVAS04</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row-lg-10 float-right text-right">
+                <div style="display: grid; grid-template-columns: auto auto auto; column-gap: 1.5em;">
+                    <button class="btn btn-default" onclick="addNewStorageType()">Add</button>
+                    <button class="btn btn-default" onclick="deactiveRecord()">Deactivate</button>
+                    <button class="btn btn-default" onclick="reactiveRecord()">Reactivate</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="audit">
+    <button class="accordion">Audit Trail</button>
+    <div class="panel">
+        <Table id="dvAuditTrail" class="table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Action By</th>
+                    <th>Action Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Added new item</td>
+                    <td>bsadmin</td>
+                    <td>2022-06-16 00:00:00</td>
+                </tr>
+                <tr>
+                    <td>Upload file</td>
+                    <td>bsadmin</td>
+                    <td>2022-06-16 00:10:00</td>
+                </tr>
+                <tr>
+                    <td>Deactivate</td>
+                    <td>bsadmin</td>
+                    <td>2022-06-16 00:20:00</td>
+                </tr>
+                <tr>
+                    <td>Reactivate</td>
+                    <td>bsadmin</td>
+                    <td>2022-06-16 00:30:00</td>
+                </tr>
+            </tbody>
+        </Table>
+    </div>
+</div>
+
+<div id="AddStorageTyePopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#ab1032">
+                <h4 class="modal-title" style="color:white">Add new Storage Type</h4>
+                <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+            </div>
+            <div id="dvAddStorageTypePopupBody" class="modal-body">
+                <table id="sub_table" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Warehouse No</th>
+                            <th>Storage Type</th>
+                            <th>Bin No</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <i onclick="addNewStorageTypeRow()" Class="fa fa-plus-circle" style="font-size:25px; color: #ab1032; cursor:pointer; text-align:center; display:inherit;" data-toggle="tooltip" title="Add New Sub"></i>
+            </div>
+            <div id="dvAddSubPopupFooter" Class="modal-footer">
+                <div Class="form-group row">
+                    <div Class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Add" Class="btn btn-default" onclick="addAllRowToTable()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+</body>
+</html>
+
